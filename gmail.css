@@ -640,7 +640,7 @@ margin-top: 50px;
     border: none;
     border-radius: 10px;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 0px;
     width: 90px;
   }
 
@@ -650,7 +650,7 @@ margin-top: 50px;
     align-items: flex-start;
     flex-direction: column;
     padding: 70px;
-    padding-top: 10px;
+    padding-top: 50px;
     border-top: 2px solid #b1b1b1;
   }
 
