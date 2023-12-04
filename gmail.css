@@ -2,6 +2,7 @@
 @import url(https://db.onlinewebfonts.com/c/0e00b32e02d1a4fb9a65ecbe64f04589?family=RobotoDraft);
 @import url(https://db.onlinewebfonts.com/c/0033a2fbc0329740fb86c1cfd134cb94?family=Roboto);
 
+
 *, *::before, *::after {
   font-family: "Google Sans", "RobotoDraft", "Roboto", Arial, Helvetica, sans-serif;
     box-sizing: content-box;
@@ -29,6 +30,7 @@
   section {
     height: 100vh;
     display: grid;
+    font-family: "Google Sans", "RobotoDraft", "Roboto", Arial, Helvetica, sans-serif;
     grid-template-areas: "header header header" "nav main-content sidebar" "nav main-content sidebar";
     grid-template-columns: 109px 4fr 50px;
     grid-template-rows: 70px 1fr;
@@ -80,6 +82,16 @@
     transition: all 0.3s;
     background-color: #d8dbdd;
     border-radius: 20px;
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+
+  .hoverer {
+    transition: all 0.3s;
+    background-color: #d8dbdd;
+    width: 50px;
+    border-radius: 20px;
+    padding-left: 10px;
     cursor: pointer;
     transform: scale(1.03);
   }
@@ -209,7 +221,7 @@
   }
 
   .search input::placeholder {
-    color: black;
+    color: #b1b1b1;
   }
 
   .active-button {
@@ -403,14 +415,40 @@ font-size: 25px;
     margin-bottom: 10px;
    height: 100%;
     background-color: rgba(234, 241, 251, 1);
-    overflow: hidden;
+    overflow: scroll;
     margin-right: -50px;
     width: 100%;
     border-radius: 25px;
     padding-right: 0px;
     margin-left: 0px;
+    overflow-x: hidden;
   }
   
+  .main_content footer {
+    margin-top: 30px;
+    margin-bottom: 70px;
+  }
+
+  .main_content footer .button {
+    border: 1px solid black;
+    background-color: #fff;
+    color: black;
+    width: 170px;
+    margin-left: 20px;
+    border-radius: 40px;
+    height: 50px;
+  }
+
+  .main_content footer .smile {
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 70px;
+  padding-bottom: 3px;
+  background-color: #fff;
+  border: 1px solid black;
+  color: gray;
+  }
+
   .content-icon,
   .star {
     transition: all 0.3s;
@@ -425,7 +463,9 @@ font-size: 25px;
     color: #b1b1b1;
   }
 
- 
+  ::-webkit-scrollbar {
+    display: none;
+}
   
   .main_content .top {
     font-size: 15px;
@@ -436,14 +476,31 @@ font-size: 25px;
     color: var(--dark-gray);
     border-bottom: 1px solid #f9f7f7;
     padding-left: 25px;
-    
+    position: fixed;
+    width: 90%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    top: 50;
+    height: 100;
+  }
+
+  .main_content .promotions {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 20px;
   }
 
   .navel {
     position: fixed;
 top: 70px;
 height: 100vh;
-width: 5%;
 background-color: rgba(246, 248, 252, 1);
 box-shadow: 1px 0 0 rgba(22, 8, 43, 0.1);
 z-index: 25;
@@ -486,21 +543,23 @@ font-size: 15px;
     margin-top: 20px;
   }
 
+  .promotions1 {
+    padding: 0;
+  }
 
-  .promotions {
-    background-color: #fff;
+  .promotions  .promotions-item-1 {
+    padding-right: 20px;
     display: flex;
-    flex-direction: row;
-    padding-left: 25px;
-    font-family: inherit;
-    font-size: 12px;
+    gap: 20px;
+
   }
 
  .promotions-item {
   padding: 10px;
   padding-right: 80px;
   padding-left: 30px;
-
+margin-top: 40px;
+margin-top: 50px;
  }
 
  .promotions-item .four {
@@ -509,43 +568,29 @@ font-size: 15px;
   padding: 7px;
   font-size: 15px;
  }
-  
-.promotions-item:hover {
-  transition: all 0.9s;
-  background-color: #b1b1b1;
-  border-bottom: 4px solid rgb(85, 85, 180);
-  color: blue;
-}
 
+ .promotions1 .promotions-item1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+ 
   .messages:hover {
     cursor: pointer;
     box-shadow: 0px 1px 4px 0.2px rgba(0, 0, 0, 0.2);
   }
   
-  .check {
+  .check
+   {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 40px;
     position: relative;
   }
   
-  .check img {
-    height: 24px;
-    cursor: pointer;
-  }
   
-  .check span {
-    position: absolute;
-    left: 6px;
-    top: 4px;
-    display: none;
-  }
-  
-  .check img:hover + span {
-    transition: all 0.3s;
-    display: inline;
-  }
   
   .sort_numbers {
     transition: all 0.3s;
@@ -564,17 +609,11 @@ font-size: 15px;
   }
   
   .messages_area {
-    height: 80vh;
-    overflow: auto;
-    word-break:keep-all;
+    height: auto;
+    overflow: hidden;
     background-color: white;
-    overflow-y: scroll;
-    border-top: 1px solid black;
+    
   }
-
-  ::-webkit-scrollbar {
-    display: none;
-}
 
   .messages_content {
     font-weight: 750;
@@ -594,7 +633,34 @@ font-size: 15px;
     color: var(--dark-gray);
     padding-left: 25px;
   }
-  
+  .inbox {
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    width: 90px;
+  }
+
+  .messages1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 70px;
+    padding-top: 10px;
+    border-top: 2px solid #b1b1b1;
+  }
+
+  .messages1 ul {
+    list-style-type: number;
+  }
+
+  .p1  {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
   .check_2 span {
     position: absolute;
     left: 5px;
@@ -608,7 +674,7 @@ font-size: 15px;
 
   .aside {
     background-color: rgba(234, 241, 251, 1);
-    height: 100vh;
+    height: 100%;
     
   }
   
@@ -826,6 +892,10 @@ h1 {
   background-color: rgba(234, 241, 251, 1);
 }
 
+.container-1 button:hover {
+  background-color: rgba(128, 128, 128, 0.619);
+}
+
 .container-2 a{
   text-decoration: none;
 }
@@ -836,7 +906,29 @@ h1 {
   margin-top: 300px;
 }
 
+.composer-container {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 40;
+  display: none;
+}
 
-.messagesPage {
-  text-decoration: none;
+.message-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+.send-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

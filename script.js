@@ -147,28 +147,42 @@ function toggle() {
   messagesArea.style.paddingRight = "100px"
 } */
 
+const composeForm = document.getElementById("composer");
+
+function message() {
+  if (composeForm.style.display === "none") {
+    composeForm.style.display = "block"
+  } else {
+    composeForm.style.display = "none"
+  }
+}
+
 const formEl = document.getElementById("signupFrm");
 const formBtn = document.getElementById("compose-btn");
 
 
 function alertMe() {
-formEl.style.display = "block";
+  if (formEl.style.display === "none") {
+    formEl.style.display = "block"
+  } else {
+    formEl.style.display = "none"
+  } 
 }
 
-function hide() {
-  formEl.style.display = "none"
-}
+
 
 const conBtn = document.getElementById("navItem")
 const conTain = document.getElementById("container");
 
 function showMe() {
-  conTain.style.display = "block"
+  if (conTain.style.display === "none") {
+    conTain.style.display = "block"
+  } else {
+    conTain.style.display = "none"
+  }
 }
 
-function hideMe() {
-  conTain.style.display ="none"
-}
+
 
 function showUs() {
   conTain.style.display = "block"
@@ -178,7 +192,9 @@ function hideUs() {
   conTain.style.display = "none"
 }
 
-const messages = document.querySelector(".messages_area");
+
+
+const messages = document.querySelector(".messages_area1");
 
 const render = function (data) {
   messages.innerHTML = data
@@ -200,3 +216,4 @@ const render = function (data) {
 };
 
 render(data);
+
