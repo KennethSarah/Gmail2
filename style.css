@@ -8,7 +8,7 @@
   }
 
   body {
-    
+    color: rgba(168, 168,168, 1) !important;
     padding: 0;
     background-color: rgba(234, 241, 251, 1);
     margin: 0;
@@ -21,6 +21,9 @@
     --light-blue: rgb(202, 229, 250);
   }
   
+  body h2, h3, h4, h5, h6, p {
+    color: black !important;
+  }
 
   p {
     cursor: pointer;

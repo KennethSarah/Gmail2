@@ -9,7 +9,7 @@
   }
 
   body {
-    
+    color: rgba(168, 168,168, 1) !important;
     padding: 0;
     background-color: rgba(234, 241, 251, 1);
     margin: 0;
@@ -20,6 +20,9 @@
     --middle-gray: #e9ecef;
     --dark-gray: #495057;
     --light-blue: rgb(202, 229, 250);
+  }
+  body h2, h3, h4, h5, h6, p {
+    color: black !important;
   }
   
 
@@ -932,3 +935,4 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
 }
+

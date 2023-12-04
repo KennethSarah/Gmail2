@@ -9,12 +9,15 @@
   }
 
   body {
-    
+    color: rgba(168, 168,168, 1) !important;
     padding: 0;
     background-color: rgba(234, 241, 251, 1);
     margin: 0;
   }
   
+  body h2, h3, h4, h5, h6, p {
+    color: black !important;
+  }
   :root {
     --light-gray: #f8f9fa;
     --middle-gray: #e9ecef;
@@ -638,6 +641,8 @@ margin-top: 50px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 10px;
+    border-top: 2px solid #b1b1b1;
   }
 
   .messages1 .coming {
@@ -1026,4 +1031,38 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.messages1 .drive {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.drive span {
+  margin-bottom: 30px;
+}
+
+.download {
+  margin-left: 1300px;
+}
+
+.promotions1 .promotions-item1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ .p1  {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.inbox {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 10px;
+  width: 90px;
 }
