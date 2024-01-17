@@ -1,0 +1,72 @@
+@media screen and (max-width:1080px) {
+    .active-button {
+      display: none;
+    }
+  
+    .messages {
+    margin:0;
+    }
+  
+   
+    .promotions {
+      width: 100%;
+    }
+  
+    .gmail-icon {
+      margin-left: 10px;
+      padding: 10px;
+    }
+  
+    .promotions {
+      padding-left: 0px;
+      width: 100%;
+    }
+  
+    .promotions-item {
+      padding: 10px;
+      margin-left: 50px;
+      gap: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .promotions-item span {
+     display: none;
+    }
+
+    .main_content .messages .messages_content{
+        display: flex;
+        justify-content: flex-start;
+        gap: 0px;
+      padding-left: 0px;
+    }
+    
+  }
+  
+  
+  @media screen and (min-width:308px) {
+  .promotions {
+      width: 100%;
+    }
+  
+    .gmail-icon {
+      margin-left: 10px;
+    }
+  
+    .promotions {
+      padding-left: 0px;
+      width: 100%;
+    }
+  
+    .promotions-item {
+      padding: 10px;
+      margin-left: 50px;
+      gap: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+ 
+    header .search {
+      margin-left: 0px;
+    }
+  }

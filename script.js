@@ -1,151 +1,100 @@
-"use strict";
+const apiKey = "message.json";
+const messages = document.querySelector(".messages_area")
 
-const data = [
-  // 1
-  {
-    sender: "Unknown",
-    date: "20:15",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 2
-  {
-    sender: "Twitter",
-    date: "07:13",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  //  3
-  {
-    sender: "The Punch",
-    date: "05:01",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 4
-  {
-    sender: "Instagram",
-    date: "Jan 11",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 5
-  {
-    sender: "Qatar",
-    date: "Nov 24",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 6
-  {
-    sender: "John Mark",
-    date: "Oct 26",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 7
-  {
-    sender: "Whatsapp",
-    date: "Dec 21",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 8
-  {
-    sender: "Google",
-    date: "Dec 10",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 9
-  {
-    sender: "Twitter",
-    date: "May 20",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 10
-  {
-    sender: "Facebook",
-    date: "Feb 23",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 11
-  {
-    sender: "Tiktok",
-    date: "Jun 25",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 12
-  {
-    sender: "Whatsapp",
-    date: "Sep 28",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 13
-  {
-    sender: "Upwork",
-    date: "Jan 17",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 14
-  {
-    sender: "LinkedIn",
-    date: "Nov 22",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 15
-  {
-    sender: "Facebook",
-    date: "Apr 23",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 16
-  {
-    sender: "Instagram",
-    date: "Jul 23",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  // 17
-  {
-    sender: "Twitter",
-    date: "Dec 31",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  {
-    sender: "Twitter",
-    date: "Dec 31",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-  {
-    sender: "Twitter",
-    date: "Dec 31",
-    message:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem libero delectus sint delectus sint adipisicing ...",
-  },
-];
+const getData = async () => {
+  const res = await fetch(apiKey);
+  const data = await res.json();
+  return data
+}
 
-/* const btnEl = document.getElementById("buttonEl");
-const formAl = document.getElementById("nav_container");
-const messagesArea = document.getElementById("main_content")
+const displayUsers = async () => {
+ const payload = await getData();
+ console.log(payload)
+ let dataDisplay = payload.map((object) => {
+  const { name, message, date } = object;
 
-function toggle() {
-  
-  formAl.style.display = "block"
-  messagesArea.style.marginLeft = "210px"
-  messagesArea.style.width = "95%"
-  messagesArea.style.overflow = "auto"
-  messagesArea.style.paddingRight = "100px"
-} */
+  return `
+  <a href="pages/message.html" class="messagesPage">
+  <div class="messages_area messages_area1" id="messages_area">
+  <div class="messages" id="messages" onmouseenter="message()" onmouseleave="messageno()">
+  <div class="messages_left">
+                <div class="check check_2">
+                  <img src="/public/images/checkbox.png" alt="" />
+                  <span> <ion-icon name="checkmark"></ion-icon> </span>
+                </div>
+                <ion-icon name="star-outline" class="hover star"></ion-icon>
+                <div class="span-1">${name}</div>
+              </div>
+ 
+  <div class="messages_content">${message}</div>
+  <div class="hide-icons" id="hide-icon">
+  <span title="Archive" class="material-symbols-outlined">
+  archive
+  </span>
+  <span title="Delete" class="material-symbols-outlined">
+    delete
+    </span>
+    <span title="Add to drafts" class="material-symbols-outlined">
+      drafts
+      </span>
+      <span title="Schedule" class="material-symbols-outlined">
+        schedule
+        </span>
+  </div> 
+  <div class="messages_date" id="date">${date}</p>
+  </div>
+  </div>
+  </a>
+  `
+ });
+
+ messages.innerHTML = dataDisplay;
+}
+displayUsers();
+/* fetch("apiKey")
+.then(response => response.json())
+.then(json => console.log(json)) */
+
+
+
+/* const messages = document.querySelector(".messages_area");
+
+const render = function (data) {
+  messages.innerHTML = data
+    .map(
+      (d) => `<div class="messages" onmouseenter="message()" onmouseleave="messageno()">
+  <div class="messages_left">
+    <div class="check check_2">
+      <img src="./img/checkbox.png" alt="" />
+      <span> <ion-icon name="checkmark"></ion-icon> </span>
+    </div>
+    <ion-icon name="star-outline" class="hover star"></ion-icon>
+    <div class="span-1">${d.sender}</div>
+  </div>
+  <div class="messages_content">${d.message}</div>
+  <div class="hide-icons" id="hide-icon">
+  <span title="Archive" class="material-symbols-outlined">
+  archive
+  </span>
+  <span title="Delete" class="material-symbols-outlined">
+    delete
+    </span>
+    <span title="Add to drafts" class="material-symbols-outlined">
+      drafts
+      </span>
+      <span title="Schedule" class="material-symbols-outlined">
+        schedule
+        </span>
+  </div>
+  <div class="messages_date">${d.date}</div>
+</div>`
+    )
+    .join(" ");
+};
+
+render(data);
+ */
+
 
 const composeForm = document.getElementById("composer");
 
@@ -159,16 +108,36 @@ function message() {
 
 const formEl = document.getElementById("signupFrm");
 const formBtn = document.getElementById("compose-btn");
+const messagesCont = document.getElementById(".messages_content")
 
 
 function alertMe() {
   if (formEl.style.display === "none") {
     formEl.style.display = "block"
+    mainContent.style.width = "84%"
+    mainContent.style.marginLeft = "300px"
+   
   } else {
     formEl.style.display = "none"
+    mainContent.style.width = "100%"
+    mainContent.style.marginLeft = "0px"
+   
   } 
 }
 
+const halfContent = document.getElementById("half")
+const myLink = document.getElementById("change")
+const otherLink = document.getElementById("link")
+const span = document.getElementById("span")
+
+myLink.addEventListener("click", function() {
+ if(this.addEventListener)
+  myLink.innerHTML = "Less";
+});
+
+function more() {
+  halfContent.style.display = "block"
+}
 
 
 const conBtn = document.getElementById("navItem")
@@ -179,6 +148,30 @@ function showMe() {
     conTain.style.display = "block"
   } else {
     conTain.style.display = "none"
+  }
+}
+
+const half = document.getElementById("half");
+const mainContent = document.getElementById("main_content")
+
+function more() {
+  if (half.style.display === "none") {
+    half.style.display = "block"
+   
+  } else {
+    half.style.display = "none"
+
+  }
+}
+
+const composeRm = document.getElementById("composer-1");
+const compBtn = document.getElementById("container-1");
+
+function toggle() {
+  if(composeRm.style.display === "none") {
+    composeRm.style.display = "block"
+  } else {
+    composeRm.style.display = "none"
   }
 }
 
@@ -194,26 +187,15 @@ function hideUs() {
 
 
 
-const messages = document.querySelector(".messages_area1");
 
-const render = function (data) {
-  messages.innerHTML = data
-    .map(
-      (d) => `<div class="messages">
-  <div class="messages_left">
-    <div class="check check_2">
-      <img src="./img/checkbox.png" alt="" />
-      <span> <ion-icon name="checkmark"></ion-icon> </span>
-    </div>
-    <ion-icon name="star-outline" class="hover star"></ion-icon>
-    <span>${d.sender}</span>
-  </div>
-  <div class="messages_content">${d.message}</div>
-  <div class="messages_date">${d.date}</div>
-</div>`
-    )
-    .join(" ");
-};
 
-render(data);
+const hide = document.getElementById("hide-icon")
 
+
+function message() {
+hide.style.visibility = "visible"
+}
+
+function messageno() {
+  hide.style.visibility = "hidden"
+}
